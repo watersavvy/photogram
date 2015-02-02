@@ -9,5 +9,20 @@ class PhotosController < ApplicationController
   	@photo = Photo.find_by({ :id => params["id"] })
   end
 
+# add data in form for a new record
+  def new_form
+
+  end
+
+#
+  def create_row
+  	@photo = Photo.new
+
+  	@photo.caption = params["the_caption"]
+  	@photo.source = params["the_source"]
+
+  	@photo.save
+  end
+
 
 end
