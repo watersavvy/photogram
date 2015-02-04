@@ -1,8 +1,8 @@
-<h1></h1>
+<h1><%= @photo.caption %></h1>
+
+<a href="http://localhost:3000/photos">Return To Index</a>
 
 <dl>
-
-  <dd><%= @photo.caption %></dd>
   
   <dd>
     <img src="<%= @photo.source %>" width="750">
@@ -14,6 +14,7 @@
   <dd><%= @photo.source %></dd>
 
 </dl>
+
 
 <a href="http://localhost:3000/delete_photo/<%= @photo.id %>">Delete this Photo</a>
 

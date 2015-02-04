@@ -1,5 +1,19 @@
 class PhotosController < ApplicationController
   
+   def edit_form   
+   @photo = Photo.find_by({ :id => params["id"] })
+   end
+
+   def update_photo
+   @photo = Photo.find_by({ :id => params["id"] })
+
+   @photo.caption = params["caption"]
+   @photo.source = params["source"]
+
+   @photo.save
+   end
+
+
   def index
     @list_of_photos = Photo.all
   end
@@ -9,20 +23,24 @@ class PhotosController < ApplicationController
   	@photo = Photo.find_by({ :id => params["id"] })
   end
 
-# add data in form for a new record
+  def create_row
+  	@photo = Photo.new
+
+  	@photo.caption = params["caption"]
+  	@photo.source = params["source"]
+
+  	@photo.save
+  end
+
   def new_form
 
   end
 
-#
-  def create_row
-  	@photo = Photo.new
+  def destroy
+   @photo = Photo.find_by({ :id => params["id"] })
 
-  	@photo.caption = params["the_caption"]
-  	@photo.source = params["the_source"]
-
-  	@photo.save
-  end
+   @photo.destroy
+   end
 
 
 end
